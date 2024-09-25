@@ -36,8 +36,10 @@ export class TimeSlotsService {
       start_day_identifier,
       timezone_identifier,
       service_duration,
-      days = 1,
-      timeslot_interval = 1800,
+      days = !body.days || body.days <= 0 ? 1 : body.days,
+      timeslot_interval = !body.timeslot_interval || body.timeslot_interval <= 0
+        ? 1800
+        : body.timeslot_interval,
       is_ignore_schedule = false,
       is_ignore_workhour = false,
     } = body;
@@ -74,6 +76,7 @@ export class TimeSlotsService {
         const workhour = workhours.find(
           (wh) => wh.weekday === currentDay.isoWeekday(),
         );
+
         if (
           !is_ignore_workhour &&
           workhour &&
