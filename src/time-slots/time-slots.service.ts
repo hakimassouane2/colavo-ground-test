@@ -74,7 +74,7 @@ export class TimeSlotsService {
         }
 
         const workhour = workhours.find(
-          (wh) => wh.weekday === currentDay.isoWeekday(),
+          (workHour) => workHour.weekday - 1 === currentDay.weekday(),
         );
 
         if (
@@ -89,7 +89,8 @@ export class TimeSlotsService {
       }
 
       const isDayOff = workhours.some(
-        (wh) => wh.weekday === currentDay.isoWeekday() && wh.is_day_off,
+        (workHour) =>
+          workHour.weekday - 1 === currentDay.weekday() && workHour.is_day_off,
       );
 
       dayTimetables.push({
