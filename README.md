@@ -5,7 +5,7 @@
 - Uses [Nest](https://github.com/nestjs/nest) framework
 - Uses node v18.12.1
 - Uses Typescript v5.1.3
-- Uses npm package manager
+- Uses npm package manager v10.8.1
 
 ## Project setup
 
